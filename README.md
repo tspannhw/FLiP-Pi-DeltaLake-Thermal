@@ -72,7 +72,60 @@ bin/pulsar-admin sinks create --archive ./connectors/pulsar-io-lakehouse-2.9.2.2
 
 bin/pulsar-admin sinks get --tenant public --namespace default --name delta_sink
 
+{
+  "tenant": "public",
+  "namespace": "default",
+  "name": "delta_sink",
+  "className": "org.apache.pulsar.ecosystem.io.lakehouse.SinkConnector",
+  "sourceSubscriptionName": "pisensorwatch",
+  "sourceSubscriptionPosition": "Latest",
+  "inputs": [
+    "persistent://public/default/pi-sensors"
+  ],
+  "inputSpecs": {
+    "persistent://public/default/pi-sensors": {
+      "isRegexPattern": false,
+      "schemaProperties": {},
+      "consumerProperties": {},
+      "poolMessages": false
+    }
+  },
+  "configs": {
+    "maxRecordsPerCommit": 10000000,
+    "processingGuarantees": "EXACTLY_ONCE",
+    "tablePath": "file:///opt/demo/lakehouse",
+    "subscriptionType": "Failover",
+    "deltaFileType": "parquet",
+    "type": "delta",
+    "maxCommitInterval": 120
+  },
+  "parallelism": 1,
+  "processingGuarantees": "EFFECTIVELY_ONCE",
+  "retainOrdering": true,
+  "autoAck": true
+}
+
 bin/pulsar-admin sinks status --tenant public --namespace default --name delta_sink
+{
+  "numInstances" : 1,
+  "numRunning" : 1,
+  "instances" : [ {
+    "instanceId" : 0,
+    "status" : {
+      "running" : true,
+      "error" : "",
+      "numRestarts" : 0,
+      "numReadFromPulsar" : 66,
+      "numSystemExceptions" : 0,
+      "latestSystemExceptions" : [ ],
+      "numSinkExceptions" : 0,
+      "latestSinkExceptions" : [ ],
+      "numWrittenToSink" : 66,
+      "lastReceivedTime" : 1657890506653,
+      "workerId" : "c-standalone-fw-127.0.0.1-8080"
+    }
+  } ]
+}
 
 bin/pulsar-admin sinks list
 
