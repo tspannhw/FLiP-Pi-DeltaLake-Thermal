@@ -474,6 +474,7 @@ show tables;
 
 describe `pi-sensors`
 
+select uuid, cputempf, temperature, humidity, co2, ts, datetimestamp from `pi-sensors`;
 
 ````
 
