@@ -84,6 +84,22 @@ SCD4X, Serial: d3efd3efd3ef
 ````
 
 
+### Pulsar Delta Sink Configuration
+
+* conf/deltalakesink.yml
+
+````
+
+
+configs:
+        type: "delta"
+        maxCommitInterval: 120
+        maxRecordsPerCommit: 10_000_000
+        tablePath: "file:///opt/demo/lakehouse"
+        processingGuarantees: "EXACTLY_ONCE"
+        deltaFileType: "parquet"
+        subscriptionType: "Failover"
+````
 
 ### Pulsar 2.9.* Sink Setup
 
@@ -98,6 +114,7 @@ bin/pulsar-admin sinks delete --tenant public --namespace default --name delta_s
 
 bin/pulsar-client consume "persistent://public/default/pi-sensors" -s "pisensorwatch" --subscription-type Failover
 
+        
 bin/pulsar-admin sinks create --archive ./connectors/pulsar-io-lakehouse-2.9.2.24.nar --tenant public --namespace default --name delta_sink --sink-config-file conf/deltalakesink.yml --inputs "persistent://public/default/pi-sensors" --parallelism 1  --subs-name pisensorwatch --processing-guarantees EFFECTIVELY_ONCE
 
 
