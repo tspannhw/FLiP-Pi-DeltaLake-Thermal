@@ -1,0 +1,8 @@
+configs:
+        type: "delta"
+        maxCommitInterval: 120
+        maxRecordsPerCommit: 10_000_000
+        tablePath: "file:///opt/demo/lakehouse"
+        processingGuarantees: "EXACTLY_ONCE"
+        deltaFileType: "parquet"
+        subscriptionType: "Failover"
