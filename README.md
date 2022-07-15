@@ -230,6 +230,10 @@ root
  |-- humidity: float (nullable = false)
  |-- co2: float (nullable = false)
  
+ 
+df.select("humidity","co2","datetimestamp","cputempf","ts", "uuid").show(100)
+
+
 ````
 
 ### Validating Parquet Files
