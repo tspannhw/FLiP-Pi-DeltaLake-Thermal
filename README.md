@@ -150,6 +150,228 @@ root
  
 ````
 
+### Validating Parquet Files
+
+
+````
+
+pip3 install parquet-tools -U
+
+parquet-tools inspect /opt/demo/lakehouse/part-0000-f2185319-1e50-4ca9-a8dd-69b7e54e552e-c000.snappy.parquet
+
+############ file meta data ############
+created_by: parquet-mr version 1.12.0 (build db75a6815f2ba1d1ee89d1a90aeb296f1f3a8f20)
+num_columns: 20
+num_rows: 3
+num_row_groups: 1
+format_version: 1.0
+serialized_size: 3289
+
+
+############ Columns ############
+uuid
+ipaddress
+cputempf
+runtime
+host
+hostname
+macaddress
+endtime
+te
+cpu
+diskusage
+memory
+rowid
+systemtime
+ts
+starttime
+datetimestamp
+temperature
+humidity
+co2
+
+############ Column(uuid) ############
+name: uuid
+path: uuid
+max_definition_level: 0
+max_repetition_level: 0
+physical_type: BYTE_ARRAY
+logical_type: String
+converted_type (legacy): UTF8
+
+############ Column(ipaddress) ############
+name: ipaddress
+path: ipaddress
+max_definition_level: 0
+max_repetition_level: 0
+physical_type: BYTE_ARRAY
+logical_type: String
+converted_type (legacy): UTF8
+
+############ Column(cputempf) ############
+name: cputempf
+path: cputempf
+max_definition_level: 0
+max_repetition_level: 0
+physical_type: INT32
+logical_type: None
+converted_type (legacy): NONE
+
+############ Column(runtime) ############
+name: runtime
+path: runtime
+max_definition_level: 0
+max_repetition_level: 0
+physical_type: INT32
+logical_type: None
+converted_type (legacy): NONE
+
+############ Column(host) ############
+name: host
+path: host
+max_definition_level: 0
+max_repetition_level: 0
+physical_type: BYTE_ARRAY
+logical_type: String
+converted_type (legacy): UTF8
+
+############ Column(hostname) ############
+name: hostname
+path: hostname
+max_definition_level: 0
+max_repetition_level: 0
+physical_type: BYTE_ARRAY
+logical_type: String
+converted_type (legacy): UTF8
+
+############ Column(macaddress) ############
+name: macaddress
+path: macaddress
+max_definition_level: 0
+max_repetition_level: 0
+physical_type: BYTE_ARRAY
+logical_type: String
+converted_type (legacy): UTF8
+
+############ Column(endtime) ############
+name: endtime
+path: endtime
+max_definition_level: 0
+max_repetition_level: 0
+physical_type: BYTE_ARRAY
+logical_type: String
+converted_type (legacy): UTF8
+
+############ Column(te) ############
+name: te
+path: te
+max_definition_level: 0
+max_repetition_level: 0
+physical_type: BYTE_ARRAY
+logical_type: String
+converted_type (legacy): UTF8
+
+############ Column(cpu) ############
+name: cpu
+path: cpu
+max_definition_level: 0
+max_repetition_level: 0
+physical_type: FLOAT
+logical_type: None
+converted_type (legacy): NONE
+
+############ Column(diskusage) ############
+name: diskusage
+path: diskusage
+max_definition_level: 0
+max_repetition_level: 0
+physical_type: BYTE_ARRAY
+logical_type: String
+converted_type (legacy): UTF8
+
+############ Column(memory) ############
+name: memory
+path: memory
+max_definition_level: 0
+max_repetition_level: 0
+physical_type: FLOAT
+logical_type: None
+converted_type (legacy): NONE
+
+############ Column(rowid) ############
+name: rowid
+path: rowid
+max_definition_level: 0
+max_repetition_level: 0
+physical_type: BYTE_ARRAY
+logical_type: String
+converted_type (legacy): UTF8
+
+############ Column(systemtime) ############
+name: systemtime
+path: systemtime
+max_definition_level: 0
+max_repetition_level: 0
+physical_type: BYTE_ARRAY
+logical_type: String
+converted_type (legacy): UTF8
+
+############ Column(ts) ############
+name: ts
+path: ts
+max_definition_level: 0
+max_repetition_level: 0
+physical_type: INT32
+logical_type: None
+converted_type (legacy): NONE
+
+############ Column(starttime) ############
+name: starttime
+path: starttime
+max_definition_level: 0
+max_repetition_level: 0
+physical_type: BYTE_ARRAY
+logical_type: String
+converted_type (legacy): UTF8
+
+############ Column(datetimestamp) ############
+name: datetimestamp
+path: datetimestamp
+max_definition_level: 0
+max_repetition_level: 0
+physical_type: BYTE_ARRAY
+logical_type: String
+converted_type (legacy): UTF8
+
+############ Column(temperature) ############
+name: temperature
+path: temperature
+max_definition_level: 0
+max_repetition_level: 0
+physical_type: FLOAT
+logical_type: None
+converted_type (legacy): NONE
+
+############ Column(humidity) ############
+name: humidity
+path: humidity
+max_definition_level: 0
+max_repetition_level: 0
+physical_type: FLOAT
+logical_type: None
+converted_type (legacy): NONE
+
+############ Column(co2) ############
+name: co2
+path: co2
+max_definition_level: 0
+max_repetition_level: 0
+physical_type: FLOAT
+logical_type: None
+converted_type (legacy): NONE
+````
+
+
 ### References
 
 * https://github.com/streamnative/pulsar-io-lakehouse/blob/master/docs/lakehouse-sink.md
