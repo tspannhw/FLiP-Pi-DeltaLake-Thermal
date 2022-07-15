@@ -457,6 +457,25 @@ logical_type: None
 converted_type (legacy): NONE
 ````
 
+### Flink SQL
+
+````
+
+CREATE CATALOG pulsar WITH (
+   'type' = 'pulsar',
+   'service-url' = 'pulsar://pulsar1:6650',
+   'admin-url' = 'http://pulsar1:8080',
+   'format' = 'json'
+);
+
+use catalog pulsar;
+
+show tables;
+
+describe `pi-sensors`
+
+
+````
 
 ### References
 
