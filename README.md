@@ -2,6 +2,8 @@
 
 Apache Pulsar -> Sink -> DeltaLake 
 
+![Diagram](https://raw.githubusercontent.com/tspannhw/FLiP-Pi-DeltaLake-Thermal/main/thermaldelta.png)
+
 ### Python Pulsar Record
 
 *** Note:   current version requires no nulls, no maps. ***
@@ -477,6 +479,14 @@ describe `pi-sensors`
 select uuid, cputempf, temperature, humidity, co2, ts, datetimestamp from `pi-sensors`;
 
 ````
+
+![FlinkSQLTableDef](https://raw.githubusercontent.com/tspannhw/FLiP-Pi-DeltaLake-Thermal/main/flinkthermal.png)
+
+![FlinkSQLResults](https://raw.githubusercontent.com/tspannhw/FLiP-Pi-DeltaLake-Thermal/main/flinksqlresultsthermal.png)
+
+![FlinkSQLCluster](https://raw.githubusercontent.com/tspannhw/FLiP-Pi-DeltaLake-Thermal/main/flinkthermaldisplay.png)
+
+
 
 ### References
 
