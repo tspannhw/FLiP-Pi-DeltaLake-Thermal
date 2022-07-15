@@ -105,6 +105,8 @@ cat /opt/demo/lakehouse/_delta_log/00000000000000000001.json
 
 ````
 
+pyspark --packages io.delta:delta-core_2.12:1.2.1 --conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" --conf "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog"
+
 >>> df = spark.read.format("delta").load("/opt/demo/lakehouse/")
 >>> df.show(10)
 +--------------------+-------------+--------+-------+-------+--------+-----------------+------------------+--------------------+---+-----------+------+--------------------+-------------------+----------+-------------------+--------------------+-----------+--------+------+
@@ -152,4 +154,4 @@ root
 
 * https://github.com/streamnative/pulsar-io-lakehouse/blob/master/docs/lakehouse-sink.md
 * https://github.com/streamnative/pulsar-io-lakehouse/blob/master/docs/delta-lake-demo.md
-* https://github.com/tspannhw/FLiP-Py-Pi-GasThermal
+* https://github.com/tspannhw/FLiP-Pi-Thermal
