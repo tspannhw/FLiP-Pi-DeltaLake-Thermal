@@ -558,6 +558,8 @@ presto> select co2, humidity,temperature, datetimestamp, ts, uuid, __publish_tim
  
 ````
 
+![PulsarSQL](https://raw.githubusercontent.com/tspannhw/FLiP-Pi-DeltaLake-Thermal/main/pulsarsql.png)
+
 ### References
 
 * https://github.com/streamnative/pulsar-io-lakehouse/blob/master/docs/lakehouse-sink.md
