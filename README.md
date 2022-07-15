@@ -52,6 +52,35 @@ SCD4X, Serial: d3efd3efd3ef
 
 ````
 
+### Example Message
+
+````
+
+{
+ "uuid": "thrml_zda_20220715182748",
+ "ipaddress": "192.168.1.204",
+ "cputempf": 108,
+ "runtime": 0,
+ "host": "thermal",
+ "hostname": "thermal",
+ "macaddress": "e4:5f:01:7c:3f:34",
+ "endtime": "1657909668.7279365",
+ "te": "0.0007398128509521484",
+ "cpu": 1.8,
+ "diskusage": "105078.0 MB",
+ "memory": 9.0,
+ "rowid": "20220715182748_fc4cbbb1-79da-4c1a-8991-78bd23c9f221",
+ "systemtime": "07/15/2022 14:27:53",
+ "ts": 1657909673,
+ "starttime": "07/15/2022 14:27:48",
+ "datetimestamp": "2022-07-15 18:27:52.492469+00:00",
+ "temperature": 28.238,
+ "humidity": 29.61,
+ "co2": 992.0
+}
+
+````
+
 
 
 ### Pulsar 2.9.* Sink Setup
