@@ -2,7 +2,6 @@
 
 Apache Pulsar -> Sink -> DeltaLake 
 
-
 ### Python Pulsar Record
 
 *** Note:   current version requires no nulls, no maps. ***
@@ -36,6 +35,21 @@ class thermal(Record):
 
 ````
 
+bin/pulsar-admin topics delete "persistent://public/default/pi-sensors" --force
+bin/pulsar-admin schemas delete "persistent://public/default/pi-sensors"
+bin/pulsar-admin topics unload "persistent://public/default/pi-sensors"
+
+bin/pulsar-admin sink stop --name delta_sink --namespace default --tenant public
+bin/pulsar-admin sinks delete --tenant public --namespace default --name delta_sink
+
+bin/pulsar-client consume "persistent://public/default/pi-sensors" -s "pisensorwatch" --subscription-type Failover
+
+bin/pulsar-admin sinks create --archive ./connectors/pulsar-io-lakehouse-2.9.2.24.nar --tenant public --namespace default --name delta_sink --sink-config-file conf/deltalakesink.yml --inputs "persistent://public/default/pi-sensors" --parallelism 1  --subs-name pisensorwatch --processing-guarantees EFFECTIVELY_ONCE
+
+
+bin/pulsar-admin sinks get --tenant public --namespace default --name delta_sink
+
+bin/pulsar-admin sinks status --tenant public --namespace default --name delta_sink
 
 bin/pulsar-admin sinks list
 
