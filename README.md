@@ -252,6 +252,7 @@ root
  
 df.select("humidity","co2","datetimestamp","cputempf","ts", "uuid").show(100)
 
+df.select("uuid","humidity","co2","cputempf","datetimestamp","ts").show(5,100)
 
 ````
 
