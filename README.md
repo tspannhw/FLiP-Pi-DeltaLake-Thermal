@@ -202,7 +202,23 @@ cat /opt/demo/lakehouse/_delta_log/00000000000000000001.json
 
 ````
 
-### Querying Delta Lake
+### Querying Delta Lake (Scala Spark Shell)
+
+````
+
+bin/spark-shell --packages io.delta:delta-core_2.12:1.2.1 --conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" --conf "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog"
+
+import io.delta.tables._
+import org.apache.spark.sql.functions._
+
+val df = spark.read.format("delta").load("/opt/demo/lakehouse/")
+df.printSchema()
+
+df.select("uuid","humidity","co2","cputempf","datetimestamp","ts").orderBy(col("datetimestamp").desc).show(5,100)
+
+````
+
+### Querying Delta Lake pyspark
 
 ````
 
