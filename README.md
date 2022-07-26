@@ -602,3 +602,4 @@ presto> select co2, humidity,temperature, datetimestamp, ts, uuid, __publish_tim
 * https://github.com/streamnative/pulsar-io-lakehouse/blob/master/docs/delta-lake-demo.md
 * https://github.com/tspannhw/FLiP-Pi-Thermal
 * https://dzone.com/articles/pulsar-in-python-on-pi
+* https://docs.delta.io/latest/quick-start.html#set-up-project
