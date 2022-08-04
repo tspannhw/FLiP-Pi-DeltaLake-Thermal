@@ -625,6 +625,46 @@ presto> select co2, humidity,temperature, datetimestamp, ts, uuid, __publish_tim
 
 ![PulsarSQL](https://raw.githubusercontent.com/tspannhw/FLiP-Pi-DeltaLake-Thermal/main/pulsarsql.png)
 
+### Apache Spark Structured Streaming SQL
+
+````
+val dfPulsar = spark.readStream.format("pulsar").option("service.url", "pulsar://pulsar1:6650").option("admin.url", "http://pulsar1:8080").option("topic", "persistent://public/default/pi-sensors").load()
+
+dfPulsar.printSchema()
+
+root
+ |-- uuid: string (nullable = false)
+ |-- ipaddress: string (nullable = false)
+ |-- cputempf: integer (nullable = false)
+ |-- runtime: integer (nullable = false)
+ |-- host: string (nullable = false)
+ |-- hostname: string (nullable = false)
+ |-- macaddress: string (nullable = false)
+ |-- endtime: string (nullable = false)
+ |-- te: string (nullable = false)
+ |-- cpu: float (nullable = false)
+ |-- diskusage: string (nullable = false)
+ |-- memory: float (nullable = false)
+ |-- rowid: string (nullable = false)
+ |-- systemtime: string (nullable = false)
+ |-- ts: integer (nullable = false)
+ |-- starttime: string (nullable = false)
+ |-- datetimestamp: string (nullable = false)
+ |-- temperature: float (nullable = false)
+ |-- humidity: float (nullable = false)
+ |-- co2: float (nullable = false)
+ |-- __key: binary (nullable = true)
+ |-- __topic: string (nullable = true)
+ |-- __messageId: binary (nullable = true)
+ |-- __publishTime: timestamp (nullable = true)
+ |-- __eventTime: timestamp (nullable = true)
+ |-- __messageProperties: map (nullable = true)
+ |    |-- key: string
+ |    |-- value: string (valueContainsNull = true)
+
+val pQuery = dfPulsar.selectExpr("*").writeStream.format("console").option("truncate", false).start()
+
+````
 
 ### HTML Table Display
 
