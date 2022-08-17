@@ -675,6 +675,7 @@ val pQuery = dfPulsar.selectExpr("*").writeStream.format("console").option("trun
 
 ### References
 
+* https://streamnative.io/blog/release/2022-08-17-announcing-the-delta-lake-sink-connector-for-apache-pulsar/
 * https://github.com/streamnative/pulsar-io-lakehouse/blob/master/docs/lakehouse-sink.md
 * https://github.com/streamnative/pulsar-io-lakehouse/blob/master/docs/delta-lake-demo.md
 * https://github.com/tspannhw/FLiP-Pi-Thermal
