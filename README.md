@@ -543,9 +543,8 @@ describe `pi-sensors`
 
 select uuid, cputempf, temperature, humidity, co2, ts, datetimestamp from `pi-sensors`;
 
-select max(cputempf) as MaxCPU, max(temperature) as MaxTemp, max(humidity) as MaxHumidity, max(co2) as MaxCO2, datetimestamp 
-from `pi-sensors` 
-group by datetimestamp;
+select max(cputempf) as MaxCPU, max(temperature) as MaxTemp, max(humidity) as MaxHumidity, max(co2) as MaxCO2 
+from `pi-sensors` ;
 
 ````
 
